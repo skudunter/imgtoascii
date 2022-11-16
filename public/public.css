@@ -1,0 +1,29 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font-family:'Sono';
+  color:black;
+  margin: 0;
+}
+#main-title {
+  font-size: 1vw;
+  padding-left:10px;
+}
+#main-logo {
+  width: 3.5vw;
+  padding-left:20px;
+  min-width:40px;
+}
+header {
+  border: 0;
+  border-bottom: 3px;
+  border-color: #bfbfbf;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  margin-bottom: 200px;
+}
+section{
+    margin: auto;
+    border-style:solid;
+    width: 80%;
+}
