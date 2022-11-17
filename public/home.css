@@ -27,3 +27,7 @@ section{
     border-style:solid;
     width: 80%;
 }
+footer{
+  position: fixed;
+  bottom: 0px;
+}

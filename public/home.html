@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./public.css">
+  <link rel="stylesheet" href="./home.css">
   <link rel="icon" href="./profile pic.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,13 @@
     <img src="./imtoascii.png" alt="the logo of the project a photo of a planet with ASCII letters" id="main-logo">
     <h1 id="main-title">imgtoascii</h1>
   </header>
-  <section><div id="root"></div></section>
+  <section>
+    <form action='../server/server.js'>
+      <input type='file' name='image' accept="image/*" id = 'file-input'></input>
+      <input type="submit"></input>
+    </form>
+  </section>
+  <footer>Daniel G.</footer>
 </body>
 
 </html>
