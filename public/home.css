@@ -1,17 +1,17 @@
 body {
   background-color: rgb(255, 255, 255);
-  font-family:'Sono';
-  color:black;
+  font-family: "Sono";
+  color: black;
   margin: 0;
 }
 #main-title {
   font-size: 1vw;
-  padding-left:10px;
+  padding-left: 10px;
 }
 #main-logo {
   width: 3.5vw;
-  padding-left:20px;
-  min-width:40px;
+  padding-left: 20px;
+  min-width: 40px;
 }
 header {
   border: 0;
@@ -22,12 +22,54 @@ header {
   align-items: center;
   margin-bottom: 200px;
 }
-section{
-    margin: auto;
-    border-style:solid;
-    width: 80%;
+section {
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-color: #bfbfbf;
+  width: 80%;
+  height: 50px;
+  margin-bottom: 60px;
 }
-footer{
+footer {
   position: fixed;
   bottom: 0px;
+}
+#button-submit {
+  border-width: 0;
+  border-left: 2px;
+  background-color: rgb(241, 241, 241);
+  border-style: solid;
+  border-color: #bfbfbf;
+  font-family: "Sono";
+  font-size: large;
+  display: block;
+  float: right;
+  position: relative;
+  height: 50px;
+  width: 100px;
+}
+:hover#button-submit {
+  background-color: rgb(76, 76, 80);
+}
+#image {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  position: relative;
+  bottom: 14px;
+}
+#output {
+  display: flex;
+  justify-content: center;
+}
+#input {
+  display: none;
+}
+#input-label {
+  font-family: "Sono";
+  width: auto;
+  position: relative;
+  bottom: -14px;
 }

@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap" rel="stylesheet">
+  <script src='../src/index.js' defer></script>
+  <script src='../src/imgtoascii.js' defer></script>
   <title>Convert an image to an ASCII image</title>
 </head>
 
@@ -19,11 +21,18 @@
     <h1 id="main-title">imgtoascii</h1>
   </header>
   <section>
-    <form action='../server/server.js'>
-      <input type='file' name='image' accept="image/*" id = 'file-input'></input>
-      <input type="submit"></input>
-    </form>
+    <div id="input-wrapper">
+      <label for='input' id='input-label'>
+        Select Image
+        <input id="input" type="file" accept="image/*" autofocus>
+        <img id="image" width='40px' />
+      </label>
+      <button onclick=displayAsciiImg() id='button-submit'>Generate</button>
+    </div>
   </section>
+
+  <div id='output'></div>
+
   <footer>Daniel G.</footer>
 </body>
 
