@@ -1,9 +1,14 @@
-const data = "@#$%adhsdhsajcnieqiytfgytidyv(&)_:,.<> ";
+//notice:half of this code was written by some guy one stack overflow,god bless him
+let data = document.getElementById("data").value;
+let hasColor = document.getElementById("has-color").checked;
+let backgroundColor = document.getElementById("background-color");
+backgroundColor.value = "#FFFFFF";
+let color = backgroundColor.value;
 function imgtoascii(image) {
-  // Dimensions of each tile
-  var tileWidth = TILE_WIDTH;
-  var tileHeight = TILE_HEIGHT;
-
+  data = document.getElementById("data").value;
+  hasColor = document.getElementById("has-color").checked;
+  color = backgroundColor.value;
+  console.log(hasColor);
   //creating the canvas for photomosaic
   var canvas = document.createElement("canvas");
   var displayCanvas = document.createElement("canvas");
@@ -24,8 +29,8 @@ function imgtoascii(image) {
   var pixels = imageData.data;
 
   // Number of mosaic tiles
-  var numTileRows = image.naturalWidth / tileWidth;
-  var numTileCols = image.naturalHeight / tileHeight;
+  var numTileRows = image.naturalWidth / TILE_WIDTH;
+  var numTileCols = image.naturalHeight / TILE_WIDTH;
 
   //canvas copy of image
   var imageCanvas = document.createElement("canvas");
@@ -52,8 +57,8 @@ function imgtoascii(image) {
     try {
       data = imageCanvasContext.getImageData(
         column * TILE_WIDTH,
-        row * TILE_HEIGHT,
-        TILE_HEIGHT,
+        row * TILE_WIDTH,
+        TILE_WIDTH,
         TILE_WIDTH
       );
     } catch (e) {
@@ -88,11 +93,11 @@ function imgtoascii(image) {
       var blue = rgb.b;
 
       // Loop through each tile pixel
-      for (var tr = 0; tr < tileHeight; tr++) {
-        for (var tc = 0; tc < tileWidth; tc++) {
+      for (var tr = 0; tr < TILE_WIDTH; tr++) {
+        for (var tc = 0; tc < TILE_WIDTH; tc++) {
           // Calculate the true position of the tile pixel
-          var trueRow = r * tileHeight + tr;
-          var trueCol = c * tileWidth + tc;
+          var trueRow = r * TILE_WIDTH + tr;
+          var trueCol = c * TILE_WIDTH + tc;
 
           // Calculate the position of the current pixel in the array
           var pos = trueRow * (imageData.width * 4) + trueCol * 4;
@@ -110,14 +115,28 @@ function imgtoascii(image) {
   // context.putImageData(imageData, 0, 0);
   // context.fillStyle = 'white';
   // context.fillRect(0,0,canvas.width,canvas.height);
+  let line = "";
+  displayContext.fillStyle = color;
+  console.log(color);
+  displayContext.fillRect(0, 0, displayCanvas.width, displayCanvas.height);
   for (var r = 0; r < numTileRows; r++) {
     for (var c = 0; c < numTileCols; c++) {
       let rgb = averageColor(r, c);
       let avg = (rgb.r + rgb.g + rgb.b) / 3;
       let index = map(avg, [0, 255], [0, data.length]);
-      // context.fillStyle = 'black';
-      displayContext.font = "10px Arial";
-      displayContext.fillText(data.charAt(index), c * tileWidth, r * tileHeight);
+      if (hasColor) {
+        displayContext.fillStyle = rgbToHex(rgb.r, rgb.g, rgb.b);
+      } else {
+        displayContext.fillStyle = "black";
+      }
+      displayContext.font = TILE_WIDTH.toString() + "px Arial";
+      displayContext.fillText(
+        data.charAt(index),
+        c * TILE_WIDTH,
+        r * TILE_WIDTH
+      );
+
+      line += data.charAt(index);
     }
   }
   return displayCanvas;
@@ -130,3 +149,12 @@ const map = (number, fromRange, toRange) => {
     toRange[0]
   );
 };
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}

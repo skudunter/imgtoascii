@@ -1,5 +1,6 @@
-var TILE_WIDTH = 10;
-var TILE_HEIGHT = 10;
+//notice:the code is ugly dont @ me
+var TILE_WIDTH = document.getElementById("resolution").value;
+var link = document.createElement("a");
 
 document.getElementById("input").onchange = function () {
   var reader = new FileReader();
@@ -10,7 +11,9 @@ document.getElementById("input").onchange = function () {
   // read the image file as a data URL.
   reader.readAsDataURL(this.files[0]);
 };
-
+document.getElementById("resolution").addEventListener("change", () => {
+  TILE_WIDTH = document.getElementById("resolution").value;
+});
 function displayAsciiImg() {
   if (document.getElementById("output-image")) {
     document.getElementById("output-image").remove();
@@ -19,4 +22,8 @@ function displayAsciiImg() {
   var canvas = imgtoascii(image);
   canvas.id = "output-image";
   document.getElementById("output").appendChild(canvas);
+  link.download = "downnload.png";
+  link.href = document.getElementById("output-image").toDataURL();
+  link.innerHTML = "download";
+  document.getElementById("download-output").appendChild(link);
 }

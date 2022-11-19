@@ -10,12 +10,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap" rel="stylesheet">
-  <script src='../src/index.js' defer></script>
-  <script src='../src/imgtoascii.js' defer></script>
+  <script src='index.js' defer></script>
+  <script src='imgtoascii.js' defer></script>
   <title>Convert an image to an ASCII image</title>
 </head>
 
-<body>
+<body id='body'>
   <header>
     <img src="./imtoascii.png" alt="the logo of the project a photo of a planet with ASCII letters" id="main-logo">
     <h1 id="main-title">imgtoascii</h1>
@@ -25,14 +25,26 @@
       <label for='input' id='input-label'>
         Select Image
         <input id="input" type="file" accept="image/*" autofocus>
-        <img id="image" width='40px' />
+        <img id="image" height='40px' />
       </label>
       <button onclick=displayAsciiImg() id='button-submit'>Generate</button>
     </div>
   </section>
+  <article id='configure'>
+    <div><label for='resolution'>resolution</label><input type="range" id='resolution' min='1' max='60' step='1'
+        value="10">
+      <label for='background-color' id='color-label'>Background Color:</label><input type="color" id='background-color'>
+      <label for="has-color" id='has-label'>Enable color:</label><input type="checkbox" id='has-color'
+        value='true'><label id='data-label' for="data">Data:</label><input type="text" id='data'
+        value='@#$%bhcahsbastftyim,icvqyw()/,._ '>
 
+    </div>
+  </article>
   <div id='output'></div>
+  <div id='download-output'></div>
+  <pre id='text-output'>
 
+</pre>
   <footer>Daniel G.</footer>
 </body>
 

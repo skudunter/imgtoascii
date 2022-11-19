@@ -20,7 +20,7 @@ header {
   border-style: solid;
   display: flex;
   align-items: center;
-  margin-bottom: 200px;
+  margin-bottom: 90px;
 }
 section {
   margin-left: auto;
@@ -72,4 +72,34 @@ footer {
   width: auto;
   position: relative;
   bottom: -14px;
+}
+#configure {
+  display: flex;
+  justify-content: space-evenly;
+  border-style: solid;
+  border-color: #bfbfbf;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+#data {
+  font-family: "Sono";
+  margin-right: 20px;
+  width: 400px;
+  border: 0;
+}
+#data-label {
+  margin-left: 20px;
+}
+#color-id {
+  margin-left: 20px;
+}
+#has-label {
+  margin-left: 20px;
+}
+#download-output {
+  text-align: center;
+}
+a {
+  display: inline;
 }
